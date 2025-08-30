@@ -1,0 +1,23 @@
+{
+	"name": "ds_src_http_hsp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_src_http_hosp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "/covid19/hospitalicuadmissionrates/csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

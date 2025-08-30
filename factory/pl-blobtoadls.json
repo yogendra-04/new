@@ -1,0 +1,9 @@
+{
+	"name": "pl-blobtoadls",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "63a742c7-c36a-4100-8da7-d09b83ebc122",
+		"tenantId": "841d393e-1041-4e23-8f3c-4a0927bb1790"
+	}
+}

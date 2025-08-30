@@ -1,0 +1,299 @@
+{
+	"name": "pl_covid19_2",
+	"properties": {
+		"activities": [
+			{
+				"name": "For Each covid data set",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('cp_datafromhttp').output",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "cp_datafromhttp",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "HttpReadSettings",
+										"requestMethod": "GET"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"name": "YearWeekISO",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "YearWeekISO",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "ReportingCountry",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "ReportingCountry",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "Denominator",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Denominator",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "NumberDosesReceived",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "NumberDosesReceived",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "NumberDosesExported",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "NumberDosesExported",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "FirstDose",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "FirstDose",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "FirstDoseRefused",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "FirstDoseRefused",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "SecondDose",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "SecondDose",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "DoseAdditional1",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "DoseAdditional1",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "DoseAdditional2",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "DoseAdditional2",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "DoseAdditional3",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "DoseAdditional3",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "DoseAdditional4",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "DoseAdditional4",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "DoseAdditional5",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "DoseAdditional5",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "UnknownDose",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "UnknownDose",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "Region",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Region",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "TargetGroup",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "TargetGroup",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "Vaccine",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Vaccine",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "Population",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Population",
+												"type": "String",
+												"physicalType": "String"
+											}
+										}
+									],
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "ds_http_covid_src",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_adls2408",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-08-26T10:47:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
