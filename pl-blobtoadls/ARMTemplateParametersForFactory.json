@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "pl-blobtoadls"
+		},
+		"ls_adls2408_accountKey": {
+			"value": ""
+		},
+		"ls_blob2408_connectionString": {
+			"value": ""
+		},
+		"ls_sqltoadls_password": {
+			"value": ""
+		},
+		"ls_adls2408_properties_typeProperties_url": {
+			"value": "https://adlsstorage2408.dfs.core.windows.net/"
+		},
+		"ls_httpserver_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_sqltoadls_properties_typeProperties_server": {
+			"value": "sr-azureserver.database.windows.net"
+		},
+		"ls_sqltoadls_properties_typeProperties_database": {
+			"value": "db-azuresql2508"
+		},
+		"ls_sqltoadls_properties_typeProperties_userName": {
+			"value": "system"
+		},
+		"ls_src_http_covidtesting_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_src_http_hosp_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_src_httptoadls_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu/"
+		}
+	}
+}

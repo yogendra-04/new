@@ -1,0 +1,119 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "pl-blobtoadls"
+		},
+		"ls_adls2408_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls2408'"
+		},
+		"ls_blob2408_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob2408'"
+		},
+		"ls_sqltoadls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_sqltoadls'"
+		},
+		"ls_adls2408_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsstorage2408.dfs.core.windows.net/"
+		},
+		"ls_httpserver_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_sqltoadls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sr-azureserver.database.windows.net"
+		},
+		"ls_sqltoadls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "db-azuresql2508"
+		},
+		"ls_sqltoadls_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "system"
+		},
+		"ls_src_http_covidtesting_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_src_http_hosp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_src_httptoadls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://opendata.ecdc.europa.eu/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "pl-blobtoadls_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adls2408_accountKey": {
+						"value": "[parameters('ls_adls2408_accountKey')]"
+					},
+					"ls_blob2408_connectionString": {
+						"value": "[parameters('ls_blob2408_connectionString')]"
+					},
+					"ls_sqltoadls_password": {
+						"value": "[parameters('ls_sqltoadls_password')]"
+					},
+					"ls_adls2408_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls2408_properties_typeProperties_url')]"
+					},
+					"ls_httpserver_properties_typeProperties_url": {
+						"value": "[parameters('ls_httpserver_properties_typeProperties_url')]"
+					},
+					"ls_sqltoadls_properties_typeProperties_server": {
+						"value": "[parameters('ls_sqltoadls_properties_typeProperties_server')]"
+					},
+					"ls_sqltoadls_properties_typeProperties_database": {
+						"value": "[parameters('ls_sqltoadls_properties_typeProperties_database')]"
+					},
+					"ls_sqltoadls_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sqltoadls_properties_typeProperties_userName')]"
+					},
+					"ls_src_http_covidtesting_properties_typeProperties_url": {
+						"value": "[parameters('ls_src_http_covidtesting_properties_typeProperties_url')]"
+					},
+					"ls_src_http_hosp_properties_typeProperties_url": {
+						"value": "[parameters('ls_src_http_hosp_properties_typeProperties_url')]"
+					},
+					"ls_src_httptoadls_properties_typeProperties_url": {
+						"value": "[parameters('ls_src_httptoadls_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
